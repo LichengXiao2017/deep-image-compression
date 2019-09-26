@@ -1,0 +1,9 @@
+# To install these Python dependencies, please type:
+# pip install -r requirements.txt
+
+streamlit
+Flask==1.1.1
+Flask-Uploads-0.2.1
+Flask-WTF-0.14.2
+WTForms-2.2.1
+tensorflow-gpu==1.15.0-rc1
