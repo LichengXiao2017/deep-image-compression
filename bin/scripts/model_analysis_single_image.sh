@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# #### local path for JPEG
+# ORIGINAL_IMAGE_PATH=../data/test/original/kodim04.png
+# COMPRESSED_IMAGE_PATH=../data/test/compressed/JPEG/kodim04.jpg
+# RECONSTRUCTED_IMAGE_PATH=../data/test/reconstructed/JPEG/kodim04.jpg.png
+
+# #### local path for JPEG2000
+# ORIGINAL_IMAGE_PATH=../data/test/original/kodim04.png
+# COMPRESSED_IMAGE_PATH=../data/test/compressed/JPEG2000/kodim04.jp2
+# RECONSTRUCTED_IMAGE_PATH=../data/test/reconstructed/JPEG2000/kodim04.jp2.png
+
+# #### local path for HEIC (High Efficiency Image Container)
+# ORIGINAL_IMAGE_PATH=../data/test/original/kodim04.png
+# COMPRESSED_IMAGE_PATH=../data/test/compressed/HEIC/kodim04.heic
+# RECONSTRUCTED_IMAGE_PATH=../data/test/reconstructed/HEIC/kodim04.heic.png
+
+#### local path for Balle's approach in 2018
+ORIGINAL_IMAGE_PATH=../data/test/original/kodim04.png
+COMPRESSED_IMAGE_PATH=../data/test/compressed/balle2018/kodim04.png.tfci
+RECONSTRUCTED_IMAGE_PATH=../data/test/reconstructed/balle2018/kodim04.png.tfci.png
+
+# #### local path for my approach
+# ORIGINAL_IMAGE_PATH=../data/test/original/kodim04.png
+# COMPRESSED_IMAGE_PATH=../data/test/compressed/my_approach/kodim04.png.tfci
+# RECONSTRUCTED_IMAGE_PATH=../data/test/reconstructed/my_approach/kodim04.png.tfci.png
+
+#### Calculate bpp (bit per pixel), PSNR (Peak-Signal-to-Noise-Ratio) and
+#### MS-SSIM(Multi-Scale Structural Similarity) for single image compression
+
+python3 single_psnr.py \
+  --original_img ${ORIGINAL_IMAGE_PATH} \
+  --compressed_img ${COMPRESSED_IMAGE_PATH} \
+  --reconstructed_img ${RECONSTRUCTED_IMAGE_PATH} \
+  $@

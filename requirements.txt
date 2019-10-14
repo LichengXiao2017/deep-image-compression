@@ -7,3 +7,6 @@ Flask-Uploads-0.2.1
 Flask-WTF-0.14.2
 WTForms-2.2.1
 tensorflow-gpu==1.15.0-rc1
+absl-py==0.8.0
+opencv-python==4.1.1.26
+pytest==5.1.0
