@@ -1,0 +1,24 @@
+# Run this script at directory deep-image-compression/, with command:
+# '''model_building_my_approach'''
+
+# Train deep image compression model (improved version of Balle2018) on
+# professional_train dataset from CLIC
+TRAIN_DATA_PATH=../data/raw/professional_train
+MODEL_PATH="./model/my_approach"
+NUM_FILTERS=192
+LAMBDA=0.01
+PREPROCESS_THREADS=16
+TRAIN_BATCH_SIZE=8
+MAX_TRAIN_STEPS=1000000
+export CUDA_VISIBLE_DEVICES=0
+
+python3 my_approach.py \
+--verbose \
+--num_filters ${NUM_FILTERS} \
+--checkpoint_dir ${MODEL_PATH} \
+train \
+--train_glob "${TRAIN_DATA_PATH}/*.png" \
+--lambda ${LAMBDA} \
+--preprocess_threads ${PREPROCESS_THREADS} \
+--batchsize ${TRAIN_BATCH_SIZE} \
+--last_step ${MAX_TRAIN_STEPS}
