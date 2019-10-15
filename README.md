@@ -2,7 +2,7 @@
 An end-to-end tool for extreme image compression using deep learning.
 
 ## Motivation for this project format:
-- **src* : Put all source code for production within structured directory
+- **src** : Put all source code for production within structured directory
 - **tests** : Put all source code for testing in an easy to find location
 - **configs** : Enable modification of all preset variables within single directory (consisting of one or many config files for separate tasks)
 - **data** : Include example a small amount of data in the Github repository so tests can be run to validate installation
@@ -12,7 +12,7 @@ An end-to-end tool for extreme image compression using deep learning.
 ## Setup
 Clone repository
 ```
-git clone https://github.com/LichengXiao2017/enas-image-compression.git
+git clone https://github.com/LichengXiao2017/deep-image-compression.git
 ```
 
 #### Dependencies

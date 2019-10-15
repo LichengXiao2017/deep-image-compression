@@ -13,4 +13,17 @@
 
 # When generating actual training dataset, the images are randomly sliced to
 # small patches with default size of 256 x 256. This part of code is included in
-# enas-image-compression/bin/deep_image_compression.sh
+# deep-image-compression/bin/deep_image_compression.sh
+
+# Path for training images
+IMAGE_PATH=path/to/training/image/directory
+
+# Rename bad image (illegal filename for bash processing) from training images.
+mv ${IMAGE_PATH}/ambitious-creative-co-rick-barrett-110145\ \(1\).png ${IMAGE_PATH}/ambitious-creative-co-rick-barrett-110145.png
+
+# Convert training images to RGB colorspace
+for image in ${IMAGE_PATH}/*.png
+do
+  convert ${image} -colorspace RGB ${image}
+  echo 'converted ' ${image}
+done

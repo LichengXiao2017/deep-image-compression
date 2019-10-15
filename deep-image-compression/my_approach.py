@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2019 Google LLC. All Rights Reserved.
+# Copyright 2019 Licheng Xiao. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Nonlinear transform coder with hyperprior for RGB images.
-
-This is the image compression model published in:
+"""
+This model is improved version of the image compression model published in:
 J. Ballé, D. Minnen, S. Singh, S.J. Hwang, N. Johnston:
 "Variational Image Compression with a Scale Hyperprior"
 Int. Conf. on Learning Representations (ICLR), 2018
 https://arxiv.org/abs/1802.01436
 
-This is meant as 'educational' code - you can use this to get started with your
-own experiments. To reproduce the exact results from the paper, tuning of hyper-
-parameters may be necessary. To compress images with published models, see
-`tfci.py`.
+The major modification is deeper network structure for encoder(analysis
+tranform) and decoder(synthesis tranform).
 """
 
 from __future__ import absolute_import
@@ -80,19 +77,47 @@ class AnalysisTransform(tf.keras.layers.Layer):
   def build(self, input_shape):
     self._layers = [
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_0", corr=True, strides_down=2,
+            self.num_filters, (3, 3), name="layer_0", corr=True, strides_down=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_1", corr=True, strides_down=2,
             padding="same_zeros", use_bias=True,
             activation=tfc.GDN(name="gdn_0")),
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_1", corr=True, strides_down=2,
+            self.num_filters, (3, 3), name="layer_2", corr=True, strides_down=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_3", corr=True, strides_down=2,
             padding="same_zeros", use_bias=True,
             activation=tfc.GDN(name="gdn_1")),
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_2", corr=True, strides_down=2,
+            self.num_filters, (3, 3), name="layer_4", corr=True, strides_down=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_5", corr=True, strides_down=2,
             padding="same_zeros", use_bias=True,
             activation=tfc.GDN(name="gdn_2")),
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_3", corr=True, strides_down=2,
+            self.num_filters, (3, 3), name="layer_6", corr=True, strides_down=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_7", corr=True, strides_down=2,
+            padding="same_zeros", use_bias=True,
+            activation=tfc.GDN(name="gdn_3")),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_8", corr=True, strides_down=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_9", corr=True, strides_down=2,
+            padding="same_zeros", use_bias=True,
+            activation=tfc.GDN(name="gdn_4")),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_10", corr=True, strides_down=1,
             padding="same_zeros", use_bias=True,
             activation=None),
     ]
@@ -114,19 +139,47 @@ class SynthesisTransform(tf.keras.layers.Layer):
   def build(self, input_shape):
     self._layers = [
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_0", corr=False, strides_up=2,
+            self.num_filters, (3, 3), name="layer_0", corr=False, strides_up=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_1", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
             activation=tfc.GDN(name="igdn_0", inverse=True)),
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_1", corr=False, strides_up=2,
+            self.num_filters, (3, 3), name="layer_2", corr=False, strides_up=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_3", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
             activation=tfc.GDN(name="igdn_1", inverse=True)),
         tfc.SignalConv2D(
-            self.num_filters, (5, 5), name="layer_2", corr=False, strides_up=2,
+            self.num_filters, (3, 3), name="layer_4", corr=False, strides_up=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_5", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
             activation=tfc.GDN(name="igdn_2", inverse=True)),
         tfc.SignalConv2D(
-            3, (5, 5), name="layer_3", corr=False, strides_up=2,
+            self.num_filters, (3, 3), name="layer_6", corr=False, strides_up=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_7", corr=False, strides_up=2,
+            padding="same_zeros", use_bias=True,
+            activation=tfc.GDN(name="igdn_3", inverse=True)),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_8", corr=False, strides_up=1,
+            padding="same_zeros", use_bias=True,
+            activation=None),
+        tfc.SignalConv2D(
+            self.num_filters, (3, 3), name="layer_9", corr=False, strides_up=2,
+            padding="same_zeros", use_bias=True,
+            activation=tfc.GDN(name="igdn_4", inverse=True)),
+        tfc.SignalConv2D(
+            3, (3, 3), name="layer_10", corr=False, strides_up=1,
             padding="same_zeros", use_bias=True,
             activation=None),
     ]
@@ -354,12 +407,12 @@ def compress(args):
       # The actual bits per pixel including overhead.
       bpp = len(packed.string) * 8 / num_pixels
 
-      print("Mean squared error: {:0.4f}".format(mse))
-      print("PSNR (dB): {:0.2f}".format(psnr))
-      print("Multiscale SSIM: {:0.4f}".format(msssim))
-      print("Multiscale SSIM (dB): {:0.2f}".format(-10 * np.log10(1 - msssim)))
-      print("Information content in bpp: {:0.4f}".format(eval_bpp))
-      print("Actual bits per pixel: {:0.4f}".format(bpp))
+      tf.logging.info("Mean squared error: {:0.4f}".format(mse))
+      tf.logging.info("PSNR (dB): {:0.2f}".format(psnr))
+      tf.logging.info("Multiscale SSIM: {:0.4f}".format(msssim))
+      tf.logging.info("Multiscale SSIM (dB): {:0.2f}".format(-10 * np.log10(1 - msssim)))
+      tf.logging.info("Information content in bpp: {:0.4f}".format(eval_bpp))
+      tf.logging.info("Actual bits per pixel: {:0.4f}".format(bpp))
 
 
 def decompress(args):
