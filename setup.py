@@ -5,10 +5,10 @@ install_requires = [
     'tensorflow-gpu==1.15.0-rc1',
     'absl-py==0.8.0',
     'opencv-python==4.1.1.26',
-    'argparse',
-    'glob',
-    'tensorflow_compression',
-    'numpy',
+    'argparse==1.4.0',
+    'glob3==0.0.1',
+    'tensorflow_compression==1.2',
+    'numpy==1.16.4',
 ]
 
 tests_require = [
@@ -27,7 +27,7 @@ setup_requires = ['pytest-runner>=2.6.2', ]
 setup(
     name='deep-image-compression',         # How you named your package folder (MyLib)
     packages=['deep-image-compression'],   # Chose the same as "name"
-    version='0.1',      # Start with a small number and increase it with every change you make
+    version='0.1.0',      # Start with a small number and increase it with every change you make
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     license='MIT',
     # Give a short description about your library
@@ -37,7 +37,7 @@ setup(
     # Provide either the link to your github or to your website
     url='https://github.com/LichengXiao2017/deep-image-compression',
     # I explain this later on
-    download_url='https://github.com/LichengXiao2017/deep-image-compression/archive/v_01.tar.gz',
+    download_url='https://github.com/LichengXiao2017/deep-image-compression/archive/v_01_0.tar.gz',
     # Keywords that define your package best
     keywords=['image', 'compression', 'deep learning'],
     install_requires=install_requires,
