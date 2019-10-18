@@ -2,14 +2,14 @@
 # '''bin/model_inference_compress_balle2018'''
 
 # Inference Balle2018 model and compress image
+# Running time will be around 2X (~ 8 seconds per image on GTX 1070) compared
+# with offcial evaluation script Using pretrained model, because building model
+# from scratch and then restoring parameters from local checkpoint takes longer
+# than restoring model from gzip file directly.
+
 TEST_DATA_PATH=/path/to/test/image.png
 MODEL_PATH="./model/balle2018"
 NUM_FILTERS=192
-LAMBDA=0.01
-PREPROCESS_THREADS=16
-TRAIN_BATCH_SIZE=8
-MAX_TRAIN_STEPS=1000000
-export CUDA_VISIBLE_DEVICES=0
 
 python3 balle2018.py \
 --num_filters ${NUM_FILTERS} \
