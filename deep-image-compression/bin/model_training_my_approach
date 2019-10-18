@@ -1,8 +1,14 @@
 # Run this script at directory deep-image-compression/, with command:
-# '''model_building_my_approach'''
+# '''bin/model_training_my_approach'''
 
-# Train deep image compression model (improved version of Balle2018) on
+# Train my approach model (improved version of Balle2018) on
 # professional_train dataset from CLIC
+
+# LAMBDA need to be adjusted for different target compression ratio
+
+# TRAIN_BATCH_SIZE, MAIN_LEARNING_RATE, AUX_LEARNING_RATE can be adjusted to
+# optimize model performance
+
 TRAIN_DATA_PATH=../data/raw/professional_train
 MODEL_PATH="./model/my_approach"
 NUM_FILTERS=192
@@ -10,6 +16,8 @@ LAMBDA=0.01
 PREPROCESS_THREADS=16
 TRAIN_BATCH_SIZE=8
 MAX_TRAIN_STEPS=1000000
+MAIN_LEARNING_RATE=1e-4
+AUX_LEARNING_RATE=1e-3
 export CUDA_VISIBLE_DEVICES=0
 
 python3 my_approach.py \
@@ -21,4 +29,6 @@ train \
 --lambda ${LAMBDA} \
 --preprocess_threads ${PREPROCESS_THREADS} \
 --batchsize ${TRAIN_BATCH_SIZE} \
---last_step ${MAX_TRAIN_STEPS}
+--last_step ${MAX_TRAIN_STEPS} \
+--main_learning_rate ${MAIN_LEARNING_RATE} \
+--aux_learning_rate ${AUX_LEARNING_RATE}

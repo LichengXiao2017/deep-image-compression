@@ -1,0 +1,18 @@
+# Run this script at directory deep-image-compression/, with command:
+# '''bin/model_inference_compress_my_approach'''
+
+# Inference my approach model and compress image
+TEST_DATA_PATH=/path/to/test/image.png.tfci
+MODEL_PATH="./model/my_approach"
+NUM_FILTERS=192
+LAMBDA=0.01
+PREPROCESS_THREADS=16
+TRAIN_BATCH_SIZE=8
+MAX_TRAIN_STEPS=1000000
+export CUDA_VISIBLE_DEVICES=0
+
+python3 my_approach.py \
+--num_filters ${NUM_FILTERS} \
+--checkpoint_dir ${MODEL_PATH} \
+decompress \
+--input_file ${TEST_DATA_PATH}

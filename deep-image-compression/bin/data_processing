@@ -16,6 +16,7 @@
 # deep-image-compression/bin/deep_image_compression.sh
 
 # Path for training images
+# IMAGE_PATH=path/to/validation/image/directory
 IMAGE_PATH=path/to/training/image/directory
 
 # Rename bad image (illegal filename for bash processing) from training images.

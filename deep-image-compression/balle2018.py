@@ -256,10 +256,10 @@ def train(args):
 
   # Minimize loss and auxiliary loss, and execute update op.
   step = tf.train.create_global_step()
-  main_optimizer = tf.train.AdamOptimizer(learning_rate=args.main_learning_rate)
+  main_optimizer = tf.train.AdamOptimizer(learning_rate=1e-4)
   main_step = main_optimizer.minimize(train_loss, global_step=step)
 
-  aux_optimizer = tf.train.AdamOptimizer(learning_rate=args.aux_learning_rate)
+  aux_optimizer = tf.train.AdamOptimizer(learning_rate=1e-3)
   aux_step = aux_optimizer.minimize(entropy_bottleneck.losses[0])
 
   train_op = tf.group(main_step, aux_step, entropy_bottleneck.updates[0])
@@ -354,12 +354,12 @@ def compress(args):
       # The actual bits per pixel including overhead.
       bpp = len(packed.string) * 8 / num_pixels
 
-      tf.logging.info("Mean squared error: {:0.4f}".format(mse))
-      tf.logging.info("PSNR (dB): {:0.2f}".format(psnr))
-      tf.logging.info("Multiscale SSIM: {:0.4f}".format(msssim))
-      tf.logging.info("Multiscale SSIM (dB): {:0.2f}".format(-10 * np.log10(1 - msssim)))
-      tf.logging.info("Information content in bpp: {:0.4f}".format(eval_bpp))
-      tf.logging.info("Actual bits per pixel: {:0.4f}".format(bpp))
+      print("Mean squared error: {:0.4f}".format(mse))
+      print("PSNR (dB): {:0.2f}".format(psnr))
+      print("Multiscale SSIM: {:0.4f}".format(msssim))
+      print("Multiscale SSIM (dB): {:0.2f}".format(-10 * np.log10(1 - msssim)))
+      print("Information content in bpp: {:0.4f}".format(eval_bpp))
+      print("Actual bits per pixel: {:0.4f}".format(bpp))
 
 
 def decompress(args):
@@ -457,12 +457,6 @@ def parse_args(argv):
       "--preprocess_threads", type=int, default=16,
       help="Number of CPU threads to use for parallel decoding of training "
            "images.")
-  train_cmd.add_argument(
-      "--main_learning_rate", type=float, default=1e-4,
-      help="Learning rate of main optimizer for autoencoder")
-  train_cmd.add_argument(
-      "--aux_learning_rate", type=float, default=1e-3,
-      help="Learning rate of auxiliary optimizer for entropy bottleneck")
 
   # 'compress' subcommand.
   compress_cmd = subparsers.add_parser(
