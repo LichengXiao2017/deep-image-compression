@@ -10,15 +10,15 @@
 # COMPRESSED_IMAGE_FOLDER_PATH=../data/test/compressed/JPEG2000/
 # RECONSTRUCTED_IMAGE_FOLDER_PATH=../data/test/reconstructed/JPEG2000/
 
-#### local path for HEIC (High Efficiency Image Container)
-ORIGINAL_IMAGE_FOLDER_PATH=../data/test/original/
-COMPRESSED_IMAGE_FOLDER_PATH=../data/test/compressed/HEIC/
-RECONSTRUCTED_IMAGE_FOLDER_PATH=../data/test/reconstructed/HEIC/
-
-# #### local path for Balle's approach in 2018
+# #### local path for HEIC (High Efficiency Image Container)
 # ORIGINAL_IMAGE_FOLDER_PATH=../data/test/original/
-# COMPRESSED_IMAGE_FOLDER_PATH=../data/test/compressed/balle2018/
-# RECONSTRUCTED_IMAGE_FOLDER_PATH=../data/test/reconstructed/balle2018/
+# COMPRESSED_IMAGE_FOLDER_PATH=../data/test/compressed/HEIC/
+# RECONSTRUCTED_IMAGE_FOLDER_PATH=../data/test/reconstructed/HEIC/
+
+#### local path for Balle's approach in 2018
+ORIGINAL_IMAGE_FOLDER_PATH=../data/test/original/
+COMPRESSED_IMAGE_FOLDER_PATH=../data/test/compressed/balle2018/
+RECONSTRUCTED_IMAGE_FOLDER_PATH=../data/test/reconstructed/balle2018/
 
 # #### local path for my approach
 # ORIGINAL_IMAGE_FOLDER_PATH=../data/test/original/

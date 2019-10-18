@@ -1,7 +1,9 @@
 # Run this script at directory deep-image-compression/, with command:
-# '''bin/model_building_balle2018'''
+# '''bin/model_training_balle2018'''
 
 # Train Balle2018 model on professional_train dataset from CLIC
+# LAMBDA need to be adjusted for different target compression ratio
+
 TRAIN_DATA_PATH=../data/raw/professional_train
 MODEL_PATH="./model/balle2018"
 NUM_FILTERS=192

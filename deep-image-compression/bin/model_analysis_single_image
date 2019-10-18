@@ -1,6 +1,4 @@
 #!/bin/bash
-from deep-image-compression import SingleEvaluator
-
 # #### local path for JPEG
 # ORIGINAL_IMAGE_PATH=../data/test/original/kodim04.png
 # COMPRESSED_IMAGE_PATH=../data/test/compressed/JPEG/kodim04.jpg

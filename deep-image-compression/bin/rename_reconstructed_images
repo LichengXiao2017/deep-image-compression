@@ -1,5 +1,5 @@
 # path for reconstructed images with suffix of ".png.tfci.png"
-RECONSTRUCTED_IMAGE_PATH=../../../../data/test/reconstructed/balle2018
+RECONSTRUCTED_IMAGE_PATH=/../data/test/reconstructed/balle2018
 
 # replace suffix with ".png", so that the order of reconstructed images are the
 # same with the original images.

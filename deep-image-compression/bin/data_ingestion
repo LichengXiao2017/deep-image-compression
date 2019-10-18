@@ -17,7 +17,7 @@
 # The script will download CLIC dataset into deep-image-compression/data/raw
 
 # Run this bash script at path deep-image-compression/ with the command:
-# '''data_ingestion'''
+# '''bin/data_ingestion'''
 
 # path to store training and validation image dataset
 DATA_PATH=path/to/store/images/dataset
