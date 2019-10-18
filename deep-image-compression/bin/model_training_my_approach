@@ -9,10 +9,14 @@
 # TRAIN_BATCH_SIZE, MAIN_LEARNING_RATE, AUX_LEARNING_RATE can be adjusted to
 # optimize model performance
 
+# Compared with Balle2018, the LAMBDA need to be scale to 2X to achieve
+# similar target bpp, since my approach has one more max pooling compared to
+# Balle2018
+
 TRAIN_DATA_PATH=../data/raw/professional_train
 MODEL_PATH="./model/my_approach"
 NUM_FILTERS=192
-LAMBDA=0.01
+LAMBDA=0.02
 PREPROCESS_THREADS=16
 TRAIN_BATCH_SIZE=8
 MAX_TRAIN_STEPS=1000000

@@ -2,14 +2,13 @@
 # '''bin/model_inference_compress_my_approach'''
 
 # Inference my approach model and compress image
+# Running time will be around 9 seconds per image on GTX 1070, can be greatly
+# shortened by pre-loading model checkpoint (actual inference time should be
+# less than 1 second)
+
 TEST_DATA_PATH=/path/to/test/image.png
 MODEL_PATH="./model/my_approach"
 NUM_FILTERS=192
-LAMBDA=0.01
-PREPROCESS_THREADS=16
-TRAIN_BATCH_SIZE=8
-MAX_TRAIN_STEPS=1000000
-export CUDA_VISIBLE_DEVICES=0
 
 python3 my_approach.py \
 --num_filters ${NUM_FILTERS} \
