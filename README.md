@@ -12,7 +12,7 @@ proposed by Balle et al in "Variational Image Compression with a Scale
 Hyperprior").
 
 The baseline model and algorithm(Balle2018) was cloned from the [Data
-compression in TensorFlow link](https://github.com/zihangdai/xlnet) repo in
+compression in TensorFlow](https://github.com/tensorflow/compression) repo in
 September, 2019.
 
 In my approach, I changed the training dataset, and modified the model
