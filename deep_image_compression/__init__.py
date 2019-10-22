@@ -1,0 +1,2 @@
+from deep_image_compression.single_psnr import SingleEvaluator
+from deep_image_compression.batch_psnr import BatchEvaluator

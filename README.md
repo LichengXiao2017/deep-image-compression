@@ -75,50 +75,51 @@ repo on a vacant GPU.
 Configurations are not combined into single config file yet.
 Here are a list of scripts and variables that need configuration before running:
 1. bin/data_ingestion
-      DATA_PATH
+      - DATA_PATH
 2. bin/data_processing
-      IMAGE_PATH
+      - IMAGE_PATH
 3. bin/model_training_balle2018
-      TRAIN_DATA_PATH
-      MODEL_PATH
-      LAMBDA
-      NUM_FILTERS
-      MAX_TRAIN_STEPS
+      - TRAIN_DATA_PATH
+      - MODEL_PATH
+      - LAMBDA
+      - NUM_FILTERS
+      - MAX_TRAIN_STEPS
 4. bin/model_training_my_approach
-      TRAIN_DATA_PATH
-      MODEL_PATH
-      LAMBDA
-      NUM_FILTERS
-      MAX_TRAIN_STEPS
-      MAIN_LEARNING_RATE
-      AUX_LEARNING_RATE
-      TRAIN_BATCH_SIZE
+      - TRAIN_DATA_PATH
+      - MODEL_PATH
+      - LAMBDA
+      - NUM_FILTERS
+      - MAX_TRAIN_STEPS
+      - MAIN_LEARNING_RATE
+      - AUX_LEARNING_RATE
+      - TRAIN_BATCH_SIZE
 5. bin/model_inference_compress_balle2018
-      TEST_DATA_PATH
-      MODEL_PATH
-      NUM_FILTERS
+      - TEST_DATA_PATH
+      - MODEL_PATH
+      - NUM_FILTERS
 6. bin/model_inference_compress_my_approach
-      TEST_DATA_PATH
-      MODEL_PATH
-      NUM_FILTERS
+      - TEST_DATA_PATH
+      - MODEL_PATH
+      - NUM_FILTERS
 7. bin/model_inference_decompress_my_approach
-      TEST_DATA_PATH
-      MODEL_PATH
-      NUM_FILTERS
+      - TEST_DATA_PATH
+      - MODEL_PATH
+      - NUM_FILTERS
 8. bin/model_inference_decompress_my_approach
-      TEST_DATA_PATH
-      MODEL_PATH
-      NUM_FILTERS
+      - TEST_DATA_PATH
+      - MODEL_PATH
+      - NUM_FILTERS
 9. bin/rename_reconstructed_images
-      RECONSTRUCTED_IMAGE_PATH
+      - RECONSTRUCTED_IMAGE_PATH
 10. bin/model_analysis_single_image
-      ORIGINAL_IMAGE_PATH
-      COMPRESSED_IMAGE_PATH
-      RECONSTRUCTED_IMAGE_PATH
+      - ORIGINAL_IMAGE_PATH
+      - COMPRESSED_IMAGE_PATH
+      - RECONSTRUCTED_IMAGE_PATH
 11. bin/model_analysis_batch_images
-      ORIGINAL_IMAGE_FOLDER_PATH
-      COMPRESSED_IMAGE_FOLDER_PATH
-      RECONSTRUCTED_IMAGE_FOLDER_PATH
+      - ORIGINAL_IMAGE_FOLDER_PATH
+      - COMPRESSED_IMAGE_FOLDER_PATH
+      - RECONSTRUCTED_IMAGE_FOLDER_PATH
+      
 In the future, these configurations will be combined into single config file
 under configs/
 
