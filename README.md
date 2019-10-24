@@ -2,7 +2,7 @@
 ## [Package](https://pypi.org/project/deep-image-compression/)
 
 # Deep Image Compression: Extreme Image Compression Using Deep Learning
-![image of pipline](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep-image-compression/static/img/pipeline.png)
+![image of pipline](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/pipeline.png)
 
 Deep Image Compression is an end-to-end tool for extreme image compression
 using deep learning. It outperforms JEPG, HEIC(state-of-the-art traditional
@@ -18,7 +18,7 @@ September, 2019.
 In my approach, I changed the training dataset, and modified the model
 structure, as is shown in the following figure.
 
-![image of model structure modification](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep-image-compression/static/img/model_improvement.png)
+![image of model structure modification](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/model_improvement.png)
 
 ## The directory structure of this repo is the following:
 - **deep-image-compression** : contains all the source code
@@ -119,7 +119,7 @@ Here are a list of scripts and variables that need configuration before running:
       - ORIGINAL_IMAGE_FOLDER_PATH
       - COMPRESSED_IMAGE_FOLDER_PATH
       - RECONSTRUCTED_IMAGE_FOLDER_PATH
-      
+
 In the future, these configurations will be combined into single config file
 under configs/
 
@@ -191,8 +191,14 @@ bin/model_analysis_batch_images
 
 #### Final result:
 
+The following graphs show that my approach achieved lower bpp(bit per pixel) with
+similar MSE(mean square error) during training.
+![image of MSE comparison](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/MSE_comparison.png)
+
+![image of bpp comparison](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/bpp_comparison.png)
+
 Note:
 1. The metrics in the table is averaged on 24 images from Kodak dataset
 2. The encoding and decoding time can be greatly reduced by pre-loading the model
 
-![image of results](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep-image-compression/static/img/result_table.png)
+![image of results](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/result_table.png)

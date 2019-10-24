@@ -2,7 +2,7 @@ import os
 from distutils.core import setup
 
 install_requires = [
-    'tensorflow-gpu==1.15.0-rc1',
+    'tensorflow-gpu==1.14.0',
     'absl-py==0.8.0',
     'opencv-python==4.1.1.26',
     'argparse==1.4.0',
@@ -25,7 +25,7 @@ extras_require = {
 setup_requires = ['pytest-runner>=2.6.2', ]
 
 setup(
-    name='deep_image_compression',         # How you named your package folder (MyLib)
+    name='deep-image-compression',         # How you named your package folder (MyLib)
     packages=['deep_image_compression'],   # Chose the same as "name"
     version='0.2',      # Start with a small number and increase it with every change you make
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository

@@ -79,45 +79,33 @@ class AnalysisTransform(tf.keras.layers.Layer):
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_0", corr=True, strides_down=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="gdn_0")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_1", corr=True, strides_down=2,
             padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="gdn_0")),
+            activation=tfc.GDN(name="gdn_1")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_2", corr=True, strides_down=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="gdn_2")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_3", corr=True, strides_down=2,
             padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="gdn_1")),
+            activation=tfc.GDN(name="gdn_3")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_4", corr=True, strides_down=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="gdn_4")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_5", corr=True, strides_down=2,
             padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="gdn_2")),
+            activation=tfc.GDN(name="gdn_5")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_6", corr=True, strides_down=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="gdn_6")),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_7", corr=True, strides_down=2,
-            padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="gdn_3")),
-        tfc.SignalConv2D(
-            self.num_filters, (3, 3), name="layer_8", corr=True, strides_down=1,
-            padding="same_zeros", use_bias=True,
-            activation=None),
-        tfc.SignalConv2D(
-            self.num_filters, (3, 3), name="layer_9", corr=True, strides_down=2,
-            padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="gdn_4")),
-        tfc.SignalConv2D(
-            self.num_filters, (3, 3), name="layer_10", corr=True, strides_down=1,
             padding="same_zeros", use_bias=True,
             activation=None),
     ]
@@ -141,45 +129,33 @@ class SynthesisTransform(tf.keras.layers.Layer):
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_0", corr=False, strides_up=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="igdn_0", inverse=True)),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_1", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="igdn_0", inverse=True)),
+            activation=tfc.GDN(name="igdn_1", inverse=True)),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_2", corr=False, strides_up=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="igdn_2", inverse=True)),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_3", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="igdn_1", inverse=True)),
+            activation=tfc.GDN(name="igdn_3", inverse=True)),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_4", corr=False, strides_up=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="igdn_4", inverse=True)),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_5", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="igdn_2", inverse=True)),
+            activation=tfc.GDN(name="igdn_5", inverse=True)),
         tfc.SignalConv2D(
             self.num_filters, (3, 3), name="layer_6", corr=False, strides_up=1,
             padding="same_zeros", use_bias=True,
-            activation=None),
+            activation=tfc.GDN(name="igdn_6", inverse=True)),
         tfc.SignalConv2D(
-            self.num_filters, (3, 3), name="layer_7", corr=False, strides_up=2,
-            padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="igdn_3", inverse=True)),
-        tfc.SignalConv2D(
-            self.num_filters, (3, 3), name="layer_8", corr=False, strides_up=1,
-            padding="same_zeros", use_bias=True,
-            activation=None),
-        tfc.SignalConv2D(
-            self.num_filters, (3, 3), name="layer_9", corr=False, strides_up=2,
-            padding="same_zeros", use_bias=True,
-            activation=tfc.GDN(name="igdn_4", inverse=True)),
-        tfc.SignalConv2D(
-            3, (3, 3), name="layer_10", corr=False, strides_up=1,
+            3, (3, 3), name="layer_7", corr=False, strides_up=2,
             padding="same_zeros", use_bias=True,
             activation=None),
     ]
