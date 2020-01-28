@@ -1,7 +1,7 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 
-tensorflow-gpu==1.15.0-rc1
+tensorflow-gpu==1.15.2
 absl-py==0.8.0
 opencv-python==4.1.1.26
 pytest==5.1.0
