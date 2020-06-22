@@ -196,12 +196,14 @@ bin/model_analysis_batch_images
 
 The following graphs show that, compared with Balle (2018), my approach achieved lower bpp(bit per pixel) with
 similar MSE(mean square error) during training.
+
 ![image of MSE comparison](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/MSE_comparison.png)
 
 ![image of bpp comparison](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/bpp_comparison.png)
 
 The following table shows the test results on Kodak dataset
 ![image of results](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/result_table.png)
+
 Note:
 1. The metrics in the table is averaged on all images from Kodak dataset
 2. The encoding and decoding time are manually recorded
