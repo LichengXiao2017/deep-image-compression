@@ -198,7 +198,7 @@ similar MSE(mean square error) during training.
 ![image of bpp comparison](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/bpp_comparison.png)
 
 Note:
-1. The metrics in the table is averaged on 24 images from Kodak dataset
-2. The encoding and decoding time can be greatly reduced by pre-loading the model
+1. The metrics in the table is averaged on all images from Kodak dataset
+2. The encoding and decoding time are manually recorded
 
 ![image of results](https://github.com/LichengXiao2017/deep-image-compression/blob/master/deep_image_compression/static/img/result_table.png)
