@@ -4,7 +4,7 @@ from distutils.core import setup
 install_requires = [
     'tensorflow-gpu==1.14.0',
     'absl-py==0.8.0',
-    'opencv-python==4.1.1.26',
+    'opencv-python==4.2.0.32',
     'argparse==1.4.0',
     'glob3==0.0.1',
     'tensorflow_compression==1.2',
