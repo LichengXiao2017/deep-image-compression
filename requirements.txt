@@ -3,5 +3,5 @@
 
 tensorflow-gpu==1.15.0-rc1
 absl-py==0.8.0
-opencv-python==4.1.1.26
+opencv-python==4.2.0.32
 pytest==5.1.0
