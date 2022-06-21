@@ -8,7 +8,7 @@ install_requires = [
     'argparse==1.4.0',
     'glob3==0.0.1',
     'tensorflow_compression==1.2',
-    'numpy==1.16.4',
+    'numpy==1.22.0',
 ]
 
 tests_require = [
